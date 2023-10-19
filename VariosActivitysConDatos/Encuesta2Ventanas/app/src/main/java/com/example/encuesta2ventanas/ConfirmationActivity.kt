@@ -23,14 +23,13 @@ class ConfirmationActivity : AppCompatActivity() {
         binding.edtApellido2.setText(apellido)
         binding.edtDNI2.setText(dni)
         binding.edtEmail2.setText(email)
-        binding.edtCont2.setText(contrasena)
 
         AlmacenPersonas.anaiadirPersona(persona)
 
         var cadena: String = ""
         var i = 1
         for(p in AlmacenPersonas.personas){
-            cadena+= i.toString()+" "+p.nombre+" "+p.Apellido+" "+p.dni+" "+p.email+" "+p.contraseña+"\n"
+            cadena+= i.toString()+" "+p.nombre+" "+p.Apellido+" "+p.dni+" "+p.email+"\n"
             i++
             binding.editTextTextMultiLine.setText(cadena)
         }
