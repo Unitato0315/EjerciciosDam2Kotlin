@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text="Gana el jugador 1"
                 finPartida()
             }
-        }else{
+        }else if(turno == 2){
             boton.setImageResource(R.drawable.o)
             eleccionesJuga2.add(boton.contentDescription.toString().toInt())
             turno = 1
@@ -63,11 +63,10 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text="Gana el jugador 2"
                 finPartida()
             }
-        }
-        binding.txtTurno.text = "Turno del jugador $turno"
-        if(botonesPulsados == 9){
+        }else if(botonesPulsados == 9){
             empate()
         }
+        binding.txtTurno.text = "Turno del jugador $turno"
         boton.isEnabled=false
 
     }
