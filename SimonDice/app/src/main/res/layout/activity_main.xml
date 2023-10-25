@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="3"
     tools:context=".MainActivity">
 
     <Button
@@ -23,6 +24,7 @@
         android:layout_width="68dp"
         android:layout_height="211dp"
         android:background="@color/greenPalid"
+        android:contentDescription="2"
         android:ems="10"
         android:enabled="true"
         android:inputType="text"
@@ -50,6 +52,7 @@
         android:layout_width="68dp"
         android:layout_height="211dp"
         android:background="@color/bluePalid"
+        android:contentDescription="4"
         android:ems="10"
         android:enabled="true"
         android:inputType="text"
@@ -64,6 +67,7 @@
         android:layout_width="202dp"
         android:layout_height="67dp"
         android:background="@color/redPalid"
+        android:contentDescription="1"
         android:ems="10"
         android:enabled="true"
         android:inputType="text"
@@ -79,6 +83,7 @@
         android:layout_width="202dp"
         android:layout_height="67dp"
         android:background="@color/yellowPalid"
+        android:contentDescription="3"
         android:ems="10"
         android:enabled="true"
         android:inputType="text"
