@@ -23,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         colores.addAll(listOf(binding.etRojo,binding.etVerde,binding.etYellow,binding.etBlue))
         binding.tvLevel.visibility=View.INVISIBLE
         binding.tvResul.visibility=View.INVISIBLE
+        binding.btnReiniciar.isEnabled=false
         binding.btnSiguiente.text="Iniciar"
+        for (color in colores){
+            color.isEnabled = false
+        }
 
         binding.btnSiguiente.setOnClickListener {
             this.nivel++
@@ -36,11 +40,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnReiniciar.setOnClickListener {
-            nivel = 1
+            nivel = 0
+            contRespuestas=0
             binding.tvLevel.visibility=View.INVISIBLE
             binding.btnSiguiente.text="Iniciar"
             binding.btnSiguiente.isEnabled=true
             patron.clear()
+            for (color in colores){
+                color.isEnabled = false
+            }
         }
 
         for (color in colores){
@@ -51,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun comprobarEleccion(color: TextView){
+        binding.tvResul.visibility=View.INVISIBLE
         if(patron[contRespuestas].compareTo(color.contentDescription.toString().toInt())==0){
             for (color in colores){
                 color.isEnabled = false
