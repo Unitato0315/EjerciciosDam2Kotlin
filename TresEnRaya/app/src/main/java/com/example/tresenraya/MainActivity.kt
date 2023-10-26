@@ -1,11 +1,10 @@
 package com.example.tresenraya
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
-import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import com.example.tresenraya.databinding.ActivityMainBinding
 
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.txtTurno.text = "Turno del jugador $turno"
-        var botones = arrayOf(binding.btn1,binding.btn2,binding.btn3,binding.btn4,binding.btn5,binding.btn6,binding.btn7,binding.btn8,binding.btn9)
+        val botones = arrayOf(binding.btn1,binding.btn2,binding.btn3,binding.btn4,binding.btn5,binding.btn6,binding.btn7,binding.btn8,binding.btn9)
 
         for (boton in botones){
             boton.setOnClickListener {
@@ -73,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     fun validar(elecciones : ArrayList<Int>):Boolean{
         var ganador = false
-        var map = mapOf(
+        val map = mapOf(
             1 to listOf(1,2,3),
             2 to listOf(1,4,7),
             3 to listOf(1,5,9),
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         binding.textView.text="Ha sido un empate"
     }
     fun finPartida(){
-        var botones = arrayOf(binding.btn1,binding.btn2,binding.btn3,binding.btn4,binding.btn5,binding.btn6,binding.btn7,binding.btn8,binding.btn9)
+        val botones = arrayOf(binding.btn1,binding.btn2,binding.btn3,binding.btn4,binding.btn5,binding.btn6,binding.btn7,binding.btn8,binding.btn9)
         for (boton in botones){
             boton.isEnabled=false
         }
