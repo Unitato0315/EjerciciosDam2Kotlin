@@ -73,8 +73,6 @@ object Conexion {
         )
         //en fila viene un CURSOR, que está justo antes del primero por eso lo ponemos en el primero en la siguiente línea
         if (fila.moveToFirst()) {//si no hay datos el moveToFirst, devuelve false, si hay devuelve true.
-
-            //Log.e("JVVM", fila.getString(1))
             a = Arma(nombre, fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getString(5), fila.getString(6), fila.getString(7), fila.getString(8))
             Log.e("ACSCO","Paso por OnUpgrade del AdminSQLLite")
         }

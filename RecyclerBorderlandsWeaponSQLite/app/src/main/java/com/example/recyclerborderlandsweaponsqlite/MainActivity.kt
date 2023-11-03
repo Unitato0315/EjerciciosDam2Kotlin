@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
             binding.edNombreMain.requestFocus()
             //la L es por ser un Long lo que trae codigo.
             if(codigo!=-1L) {
-                Toast.makeText(this, "Persona insertada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Arma insertada", Toast.LENGTH_SHORT).show()
                 listarArma(view)
             }
             else
@@ -147,11 +147,11 @@ class MainActivity : AppCompatActivity() {
         binding.spTipo.setSelection(0)
         binding.spFabricante.setSelection(0)
         if (cant == 1) {
-            Toast.makeText(this, "Se borró la persona con ese DNI", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Se borró el arma", Toast.LENGTH_SHORT).show()
             listarArma(view)
         }
         else
-            Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "No existe ese arma", Toast.LENGTH_SHORT).show()
 
     }
 
@@ -166,7 +166,7 @@ class MainActivity : AppCompatActivity() {
             if (cant == 1)
                 Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT).show()
             else
-                Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No existe ese arma", Toast.LENGTH_SHORT).show()
         }
         listarArma(view)
     }
@@ -174,12 +174,11 @@ class MainActivity : AppCompatActivity() {
     fun buscarArma(view: View) {
         var a:Arma? = null
         a = Conexion.buscarArma(this, binding.edNombreMain.text.toString())
-        Log.e("ACSCO","salio de buscar")
         if (a!=null) {
             binding.spFabricante.setSelection(adapterFabri.getPosition(a.fabricante))
             binding.spTipo.setSelection(adapterTipo.getPosition(a.tipo))
         } else {
-            Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "No existe ese arma", Toast.LENGTH_SHORT).show()
         }
 
     }
