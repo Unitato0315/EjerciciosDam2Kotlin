@@ -7,6 +7,7 @@ import Modelo.FactoriaListaArmas
 import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -14,6 +15,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.recyclerborderlandsweaponsqlite.databinding.ActivityMainBinding
+import kotlinx.coroutines.delay
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,11 +28,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //Almacen.armas = FactoriaListaArmas.generaLista(2)
-        //binding.btnListar.setOnClickListener {
-            // var inte = Intent(this, VentanaVista::class.java)
-           // startActivity(inte)
-        //}
+        binding.btnVerLista.setOnClickListener {
+            Almacen.armas = Conexion.obtenerArmas(this)
+            var inte = Intent(this, VentanaVista::class.java)
+            startActivity(inte)
+        }
 
         val option = arrayOf("...","Tediore","Maliwan","Jackobs","Torgue")
         adapterFabri =ArrayAdapter<String>(this,R.layout.simple_list_item_1,option)
@@ -44,7 +46,24 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
                 fabricante = parent?.getItemAtPosition(position).toString()
-                asignarTipos()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+        val optionTipo = arrayOf("...","Pistol","Rocket Launcher","Shotgun","Assault rifle","SMG","Sniper")
+
+        adapterTipo = ArrayAdapter<String>(this,R.layout.simple_list_item_1,optionTipo)
+        binding.spTipo.adapter = adapterTipo
+        binding.spTipo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                tipo = parent?.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -100,42 +119,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun asignarTipos(){
-        var option = arrayOf<String>("Selecciona un fabricante")
-        binding.spTipo.isEnabled=true
-        when(fabricante){
-            "Tediore"->{
-                option = arrayOf("...","Pistol","SMG","Shotgun","Assault rifle")
-            }
-            "Maliwan"->{
-                option = arrayOf("...","Pistol","SMG","Sniper","Assault rifle")
-            }
-            "Jackobs"->{
-                option = arrayOf("...","Pistol","Sniper","Shotgun","Assault rifle")
-            }
-            "Torgue"->{
-                option = arrayOf("...","Pistol","Rocket Launcher","Shotgun","Assault rifle")
-            }
-            else -> binding.spTipo.isEnabled=false
-        }
-        adapterTipo = ArrayAdapter<String>(this,R.layout.simple_list_item_1,option)
-        binding.spTipo.adapter = adapterTipo
-        binding.spTipo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                tipo = parent?.getItemAtPosition(position).toString()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-        }
-    }
-
     fun addArma(view: View) {
         if (binding.edNombreMain.text.toString().trim().isEmpty()|| fabricante == "..."
             || tipo == "..."){
@@ -151,7 +134,7 @@ class MainActivity : AppCompatActivity() {
             //la L es por ser un Long lo que trae codigo.
             if(codigo!=-1L) {
                 Toast.makeText(this, "Persona insertada", Toast.LENGTH_SHORT).show()
-               // listarArma(view)
+                listarArma(view)
             }
             else
                 Toast.makeText(this, "Ya existe ese Nombre. Arma NO insertada", Toast.LENGTH_SHORT).show()
@@ -165,7 +148,7 @@ class MainActivity : AppCompatActivity() {
         binding.spFabricante.setSelection(0)
         if (cant == 1) {
             Toast.makeText(this, "Se borró la persona con ese DNI", Toast.LENGTH_SHORT).show()
-            //listarArma(view)
+            listarArma(view)
         }
         else
             Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
@@ -185,15 +168,16 @@ class MainActivity : AppCompatActivity() {
             else
                 Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
         }
-        //listarArma(view)
+        listarArma(view)
     }
 
     fun buscarArma(view: View) {
         var a:Arma? = null
         a = Conexion.buscarArma(this, binding.edNombreMain.text.toString())
+        Log.e("ACSCO","salio de buscar")
         if (a!=null) {
-            //binding.spFabricante.setSelection(adapterFabri.getPosition(a.fabricante))
-            //binding.spFabricante.setSelection(adapterTipo.getPosition(a.tipo))
+            binding.spFabricante.setSelection(adapterFabri.getPosition(a.fabricante))
+            binding.spTipo.setSelection(adapterTipo.getPosition(a.tipo))
         } else {
             Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
         }
@@ -202,7 +186,6 @@ class MainActivity : AppCompatActivity() {
 
     fun listarArma(view: View) {
         var listado:ArrayList<Arma> = Conexion.obtenerArmas(this)
-
         binding.txtListado.setText("")
 
         if (listado.size==0) {

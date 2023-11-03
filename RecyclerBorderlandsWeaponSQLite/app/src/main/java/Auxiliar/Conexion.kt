@@ -3,10 +3,11 @@ package Auxiliar
 import Modelo.Arma
 import Conexion.AdminSQLiteConexion
 import android.content.ContentValues
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 object Conexion {
-    private  var DATABASE_NAME = "administracion.db3"
+    private  var DATABASE_NAME = "armas.db3"
     private  var DATABASE_VERSION = 1
 
 
@@ -21,11 +22,12 @@ object Conexion {
         registro.put("nombre", a.nombre)
         registro.put("fabricante",a.fabricante)
         registro.put("imagen", a.imagen)
+        registro.put("tipo",a.tipo)
         registro.put("rareza", a.rareza)
         registro.put("gatillo",a.gatillo)
         registro.put("canion", a.canion)
-        registro.put("elemento", a.nombre)
-        registro.put("complemento",a.fabricante)
+        registro.put("elemento", a.elemento)
+        registro.put("complemento",a.complemento)
         val codigo = bd.insert("armas", null, registro)
         bd.close()
         return codigo
@@ -47,7 +49,7 @@ object Conexion {
         registro.put("tipo", a.tipo)
         registro.put("fabricante", a.fabricante)
         // val cant = bd.update("personas", registro, "dni='${dni}'", null)
-        val cant = bd.update("personas", registro, "nombre=?", arrayOf(nombre))
+        val cant = bd.update("armas", registro, "nombre=?", arrayOf(nombre))
         //val cant = bd.update("personas", registro, "dni=? AND activo=?", arrayOf(dni.toString(), activo.toString()))
         //Esta línea de más arriba es para tener un ejemplo si el where tuviese más condiciones
         //es mejor la forma de la línea 43 que la de la línea 42, ya que es peligroso inyectar sql directamente al controlarse peor los errores
@@ -66,12 +68,15 @@ object Conexion {
             null
         )*/
         val fila =bd.rawQuery(
-            "SELECT nombre, fabricante, tipo FROM armas WHERE nombre=?",
-            arrayOf(nombre.toString())
+            "SELECT * FROM armas WHERE nombre=?",
+            arrayOf(nombre)
         )
         //en fila viene un CURSOR, que está justo antes del primero por eso lo ponemos en el primero en la siguiente línea
         if (fila.moveToFirst()) {//si no hay datos el moveToFirst, devuelve false, si hay devuelve true.
-            a = Arma(nombre, fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getString(5), fila.getString(6), fila.getString(7))
+
+            //Log.e("JVVM", fila.getString(1))
+            a = Arma(nombre, fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getString(5), fila.getString(6), fila.getString(7), fila.getString(8))
+            Log.e("ACSCO","Paso por OnUpgrade del AdminSQLLite")
         }
         bd.close()
         return a
@@ -82,7 +87,7 @@ object Conexion {
 
         val admin = AdminSQLiteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.readableDatabase
-        val fila = bd.rawQuery("select nombre,fabricante,tipo from armas", null)
+        val fila = bd.rawQuery("select * from armas", null)
         while (fila.moveToNext()) {
             var a:Arma = Arma(fila.getString(0),fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getString(5), fila.getString(6), fila.getString(7), fila.getString(8))
             armas.add(a)
