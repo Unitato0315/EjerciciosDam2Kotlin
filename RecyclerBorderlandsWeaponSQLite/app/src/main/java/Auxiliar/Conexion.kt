@@ -46,8 +46,8 @@ object Conexion {
         val admin = AdminSQLiteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.writableDatabase
         val registro = ContentValues()
-        registro.put("tipo", a.tipo)
         registro.put("fabricante", a.fabricante)
+        registro.put("tipo", a.tipo)
         // val cant = bd.update("personas", registro, "dni='${dni}'", null)
         val cant = bd.update("armas", registro, "nombre=?", arrayOf(nombre))
         //val cant = bd.update("personas", registro, "dni=? AND activo=?", arrayOf(dni.toString(), activo.toString()))
