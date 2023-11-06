@@ -1,7 +1,5 @@
 package com.example.menugames
 
-import Auxiliar.Conexion
-import Modelo.Jugador
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,23 +17,17 @@ class SimonDice : AppCompatActivity() {
     var cont = 0
     var cont2 = 0
     var contRespuestas = 0
-    lateinit var jugador: String
-    var jugadorPuntacion: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySimonDiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        jugador = intent.getStringExtra("nombre").toString()
-        binding.toolbarSimon.title = "Jugador $jugador"
+        binding.toolbarSimon.title = "Jugador "+intent.getStringExtra("nombre")
 
         setSupportActionBar(binding.toolbarSimon)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        buscarPersona()
-
         binding.toolbarSimon.setNavigationOnClickListener {
-            addPersona()
             finish()
         }
 
@@ -167,44 +159,5 @@ class SimonDice : AppCompatActivity() {
             }
         }
         timer.start()
-    }
-
-    fun addPersona() {
-        var pers: Jugador = Jugador(
-            jugador,
-            nivel
-        )
-        var codigo=Conexion.addJugador(this, pers)
-        //la L es por ser un Long lo que trae codigo.
-        if(codigo!=-1L) {
-            Toast.makeText(this, "Jugador guardado", Toast.LENGTH_SHORT).show()
-        }
-        else
-            modPersona()
-    }
-    fun modPersona() {
-            var pers: Jugador = Jugador(
-                jugador,
-                nivel
-            )
-            if(nivel > jugadorPuntacion){
-                var cant = Conexion.modJugador(this, jugador, pers)
-                if (cant == 1)
-                    Toast.makeText(this, "Se ha guardado tu nuevo nivel maximo", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this, "Tu nivel ha sido menor o igual que el ultimo guardado", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    fun buscarPersona() {
-        var j:Jugador? = null
-        j = Conexion.buscarJugador(this, jugador)
-        if (j!=null) {
-            jugadorPuntacion = j.nivel
-            Toast.makeText(this, "Bienvenido "+j.nombre+", llegaste por ultima vez hasta el nivel "+j.nivel, Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "Saludos, $jugador", Toast.LENGTH_SHORT).show()
-        }
-
     }
 }
