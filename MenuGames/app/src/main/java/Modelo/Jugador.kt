@@ -1,4 +1,3 @@
 package Modelo
 
-class Jugador {
-}
+data class Jugador(var nombre:String, var nivel:Int)

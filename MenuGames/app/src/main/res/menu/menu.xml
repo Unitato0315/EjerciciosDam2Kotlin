@@ -3,9 +3,9 @@
     <item
         android:id="@+id/mnOp1"
         android:icon="@drawable/ic_x"
-        android:title="Tres en raya" />
+        android:title="Simon Dice" />
     <item
         android:id="@+id/mnOp2"
         android:icon="@drawable/ic_c"
-        android:title="Simon dice" />
+        android:title="Tres en raya" />
 </menu>
