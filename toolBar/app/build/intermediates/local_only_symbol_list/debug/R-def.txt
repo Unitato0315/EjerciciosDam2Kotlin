@@ -1,0 +1,21 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_file
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_logo
+id mnBus
+id mnOp1
+id mnOp2
+id toolbarPrincipal
+layout activity_main
+menu menu
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.ToolBar
+style Theme.ToolBar
+xml backup_rules
+xml data_extraction_rules
