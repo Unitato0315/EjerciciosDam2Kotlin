@@ -1,7 +1,15 @@
 [
     {
-        "merged": "com.example.sqliteborderlands.app-mergeDebugResources-30:/layout/cardview_weapons.xml",
-        "source": "com.example.sqliteborderlands.app-main-33:/layout/cardview_weapons.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.example.sqliteborderlands.app-mergeDebugResources-30:\\layout\\activity_ventana_vista.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.example.sqliteborderlands.app-main-33:\\layout\\activity_ventana_vista.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.example.sqliteborderlands.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.example.sqliteborderlands.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.example.sqliteborderlands.app-mergeDebugResources-30:\\layout\\cardview_weapons.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.example.sqliteborderlands.app-main-33:\\layout\\cardview_weapons.xml"
     },
     {
         "merged": "com.example.sqliteborderlands.app-mergeDebugResources-30:/layout/activity_ventana_vista.xml",

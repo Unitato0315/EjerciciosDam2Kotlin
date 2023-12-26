@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ConexionYLogin</string>
+    <string name="your_web_client_id">650510215473-7c1am6n59qndvj1l12p2jb4d2fs047p2.apps.googleusercontent.com</string>
+    <string name="open">Abrir</string>
+    <string name="gallery">Galeria</string>
+    <string name="save">Guardar\n</string>
+    <string name="image_saved">Imagen guardada</string>
 </resources>

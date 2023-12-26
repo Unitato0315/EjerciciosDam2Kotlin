@@ -9,7 +9,26 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe3b71d4-617a-4007-a318-87111d260bc4" name="Changes" comment="" />
+    <list default="true" id="fe3b71d4-617a-4007-a318-87111d260bc4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/8.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/app/src/main/java/com/example/conexionylogin/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/app/src/main/java/com/example/conexionylogin/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexionYLogin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../ConexionYLogin/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +58,7 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
     "last_directory_selection": "C:/Users/User/Documents/EjerciciosDam2Kotlin/sqliteBorderlands/app/src/main/java",
-    "last_opened_file_path": "C:/Users/User/Documents/EjerciciosDam2Kotlin/ConexionYLogin"
+    "last_opened_file_path": "C:/Users/User/Documents/EjerciciosDam2Kotlin/sqliteBorderlands"
   }
 }]]></component>
   <component name="RecentsManager">
